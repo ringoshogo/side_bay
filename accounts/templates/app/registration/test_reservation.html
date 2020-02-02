@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+{% load static %}
+<head>
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'css/test_database.css' %}" />
+
+    <meta charset="UTF-8">
+    <title>test画面</title>
+</head>
+<body>
+
+    <h5>◆ユーザ名：{{ username }}</h5>
+
+    <table class="common_list" border="">
+        <tr>
+            <th>予約ID</th>
+            <th>チェックイン日</th>
+            <th>チェックアウト日</th>
+            <th>部屋数</th>
+            <th>宿泊人数</th>
+            <th>目的</th>
+            <th>抽選状況</th>
+            <th>抽選確定</th>
+            <th>削除</th>
+        </tr>
+        {% for res in reservations %}
+            <tr>
+                <td>{{ res.reservation_id }}</td>
+                <td>{{ res.check_in_date }}</td>
+                <td>{{ res.check_out_date }}</td>
+                <td>{{ res.number_of_rooms }}</td>
+                <td>{{ res.number_of_guests }}</td>
+                <td>{{ res.purpose }}</td>
+                <td>予約確定</td>
+                <td>-</td>
+                <form action="delete_lottery_or_reservation" method="post">
+                    {% csrf_token %}
+                        <td>
+                            <input type="hidden" name="reservation_id" value='{{ res.reservation_id }}'>
+                            <input type="submit" value="削除">
+                        </td>
+                </form>
+            </tr>
+        {% endfor %}
+        {% for lot in lotterys %}
+            <tr>
+                <td>{{ lot.reservation_id }}</td>
+                <td>{{ lot.check_in_date }}</td>
+                <td>{{ lot.check_out_date }}</td>
+                <td>{{ lot.number_of_rooms }}</td>
+                <td>{{ lot.number_of_guests }}</td>
+                <td>{{ lot.purpose }}</td>
+                <td>抽選待ち</td>
+                <form action="turn_lottery_into_reservation" method="post">
+                    {% csrf_token %}
+                        <td>
+                            <input type="hidden" name="reservation_id" value='{{ lot.reservation_id }}'>
+                            <input type="submit" value="確定">
+                        </td>
+                </form>
+                <form action="delete_lottery_or_reservation" method="post">
+                    {% csrf_token %}
+                        <td>
+                            <input type="hidden" name="reservation_id" value='{{ lot.reservation_id }}'>
+                            <input type="submit" value="削除">
+                        </td>
+                </form>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+
+    <form action='register_reservation' method="POST">
+        {% csrf_token %}
+        チェックイン日：<br>
+        <input type="date" name="check_in_date"><br>
+        チェックアウト日：<br>
+        <input type="date" name="check_out_date"><br>
+        部屋数：<br>
+        <input type="number" name="number_of_rooms" value="1"><br>
+        宿泊数：<br>
+        <input type="number" name="number_of_guests" value="1"><br>
+        目的：<br>
+        <input type="text" name="purpose" value="ひまつぶし"><br>
+        抽選(テスト用)<br>
+        <input type="checkbox" name="lottery_flag" value="1" checked><br>
+        <button type="submit">登録</button>
+    </form>
+
+    <br>
+
+    <a href='test_database'>ユーザ一覧画面へ</a><br>
+
+
+</body>
+</html>

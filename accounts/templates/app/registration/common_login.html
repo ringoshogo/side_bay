@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+  <body>
+    <div class="container">
+      <h1 class="login-title">SidebaySidebay予約システム</h1>
+  <div class="card">
+  <form>
+    <div class="form-group">
+      <!-- パスワードを入力 -->
+      <!-- 入力を必須にする -->
+      <input type="password" class="form-control" id="" placeholder="パスワード" required>
+    </div>
+    <!-- ログインボタンを押すと入力情報に間違いがなければメインページへ遷移する。 -->
+        <button type="submit" class="btn">ログインに進む</button>
+  </form>
+    </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,52 @@
+#calendar {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.calendar-panel {
+  margin-bottom: 40px;
+}
+
+.lottery-period {
+  margin: 0;
+}
+
+.fc-left h2 {
+  font-weight: normal;
+}
+.fc-widget-header th {
+  background-color: #f8dbc6;
+}
+th.fc-day-header,
+th.fc-widget-header {
+  color: #550000;
+  font-size: 14px;
+  font-weight: normal;
+}
+.fc-sun > span {
+  color: #cd384b;
+}
+.fc-sat > span {
+  color: #415ea6;
+}
+td.fc-sun {
+  background-color: #fae6e3;
+}
+td.fc-sat {
+  background-color: #dceef7;
+}
+.fc-unthemed .fc-content,
+.fc-unthemed .fc-divider,
+.fc-unthemed .fc-list-heading td,
+.fc-unthemed .fc-list-view,
+.fc-unthemed .fc-popover,
+.fc-unthemed .fc-row,
+.fc-unthemed tbody,
+.fc-unthemed td,
+.fc-unthemed th,
+.fc-unthemed thead {
+  border-color: #d1ccd9;
+}
+
+.fc-ltr .fc-basic-view .fc-day-top .fc-day-number {
+  float: left;
+}

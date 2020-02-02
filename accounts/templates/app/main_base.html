@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'css/mains.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/calender-style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/lottery.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/REBGST_003.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static  'css/fullcalendar.min.css' %}"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/calender-style.css' %}"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link
+      rel="stylesheet"
+      href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css"
+    />
+
+    <title>Sidebay予約システム</title>
+  </head>
+  <body>
+    <header>
+      <!-- <div class="container"> -->
+      <nav class="navbar navbar-expand-lg navbar-light">
+          <!--<a class="navbar-brand" href="#">ロゴ</a>-->
+          <a class="navbar-brand" href="#"><img class="rebirth-logo" src="{% static 'img/logo.png' %}" alt="ロゴマーク" ></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+              <ul class="navbar-nav">
+                  <li>{{ request.session.login_username }}</li>
+                  <li class="nav-item ">
+                      <a href="init_my_page_screen">マイページ</a>
+                  </li>
+                  <li class="nav-item ">
+                      <a href="init_res_top_screen">予約カレンダー</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="init_password_change">パスワード変更</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="init_user_terms">利用規約</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="init_sidebay_info">保養所情報</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{% url 'logout' %}">ログアウト</a>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+      <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+              <ul class="navbar-nav">
+                  <li>管理者用メニュー</li>
+                  <li class="nav-item ">
+                      <a href="init_admin_calendar">管理者カレンダー</a>
+                  </li>
+                  <li class="nav-item ">
+                      <a href="init_admin_manage">ユーザ管理</a>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+      <!-- </div> -->
+    </header>
+    {% block content %} {% endblock %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    ></script>
+
+    <script src="{% static 'js/moment.min.js' %}"></script>
+    <script src="{% static 'js/calender.js' %}"></script>
+    <script src="{% static 'js/fullcalendar.min.js' %}"></script>
+    <script src="{% static 'js/ja.js' %}"></script>
+    <script src="{% static 'js/topUp.js' %}"></script>
+    <script src="{% static 'js/fadein.js' %}"></script>
+    <script src="{% static 'js/json_data.js' %}"></script>
+    <script src="{% static 'js/lottery_calendar_input.js' %}"></script>
+    <script src="{% static 'js/lottery_calendar_form_fadeInOut.js' %}"></script>
+
+    <!-- bootstrap js -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- datepicker js -->
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+.REBGST_003 table.table tbody tr td,
+.REBGST_003 table.table thead tr th,
+.REBGST_003 table.table thead {
+  border-left: 1px solid rgb(222, 226, 230);
+  /* border-right: 1px solid rgb(222, 226, 230); */
+  /* border-bottom: 1px solid rgb(222, 226, 230); */
+}
+
+.REBGST_003 table.table tbody tr td:last-child {
+  border-right: 1px solid rgb(222, 226, 230);
+}
+.REBGST_003 table.table tbody tr:last-child td {
+  border-bottom: 1px solid rgb(222, 226, 230);
+}
+  
+.REBGST_003 table.table thead tr th {
+  font-weight: bold;
+  background-color: #f8dbc6;
+}
+
+.REBGST_003 table.table tbody tr td,
+.REBGST_003 table.table thead tr th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.action-cell {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.action-form {
+  flex-grow: 1;
+}
+
+.REBGST_003.container {
+  margin-bottom: 40px;
+}
+
+.REBGST_003 .action-form .btn {
+  width: 95%;
+}

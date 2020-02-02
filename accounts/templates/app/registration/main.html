@@ -1,0 +1,160 @@
+{% extends '../main_base.html' %}
+{% load staticfiles %}
+{% block content %}
+  <body>
+
+    <header>
+      <!-- <div class="container"> -->
+      <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" href="#">ロゴ</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+              <ul class="navbar-nav">
+                  <!-- <span class="sr-only">(current)</span>　現在の位置的なやつ -->
+                  <!-- activ -->
+                  <li>{{ request.session.login_username }}</li>
+                  <li class="nav-item ">
+                      <a href="{% url 'lottery' %}">マイページ</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="#">アクセス</a>
+                  </li>
+                  <li class="nav-item">
+                      <!-- disableの指定なし -->
+                      <a href="{% url 'logout' %}">ログアウト</a>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+      <!-- </div> -->
+    </header>
+    <div class="top-image">
+      image
+    </div>
+    <div class="container">
+
+      <h3 class="main-h">まずは抽選に参加しよう！</h3>
+      <p class="attention-text">SideBayのご利用には抽選への参加および当選後の予約が必要です。詳しくはページ下をご参照ください。
+</p>
+
+      <div class="contents-box">
+        <div class="content-box">
+          <p class="content-title">抽選（一次受付）</p>
+          <p class="first-title">-抽選期間-</p>
+          <p class="drawing">yyyymmdd - yyyymmdd</p>
+          <p class="second-title">抽選エントリー期間</p>
+          <p class="drawing">yyyymmdd - yyyymmdd</p>
+          <button class="btn" type="button" name="button">抽選エントリー</button>
+        </div>
+        <div class="content-box">
+          <p class="content-title">申込確認</p>
+          <p class="first-title">-抽選期間-</p>
+          <p class="drawing">yyyymmdd - yyyymmdd</p>
+          <p class="second-title">予約状況確認</p>
+          <p class="drawing">予約状況の確認ができます。</p>
+          <button class="btn" type="button" name="button">申込内容確認</button>
+        </div>
+        <div class="content-box">
+          <p class="content-title">二次予約</p>
+          <p class="first-title">-予約期間-</p>
+          <p class="drawing">yyyymmdd - yyyymmdd</p>
+          <p class="second-title"></p>
+          <p class="drawing"></p>
+          <button class="btn" type="button" name="button">二次予約</button>
+        </div>
+      </div>
+      </div>
+      <div class="content-border">
+        <p>Sidebayご利用までの流れ</p>
+      </div>
+      <section>
+        <div class="container">
+        <div class="lecture-content">
+          <div class="lecture-box fadein">
+            <p class="step-title">step1</p>
+            <p class="sub-title">抽選へのご参加（一次受付）</p>
+            <div class="card">
+              <div class="card-body">
+                <p class="card-text">
+                  ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+                  ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+                  ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+                  ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+                </p>
+                <a href="{% url 'lottery' %}">
+                  <!-- {% csrf_token %} -->
+                  <button class="btn" type="submit">抽選エントリーへ</button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="lecture-box fadein">
+            <p class="step-title">step2</p>
+            <p class="sub-title">抽選結果の確認</p>
+            <div class="card">
+              <div class="card-body">
+                <p class="card-text">
+                  ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+                  ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+                  ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+                  ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+                </p>
+                <button class="btn" type="button" name="button">申込内容確認へ</button>
+              </div>
+            </div>
+          </div>
+          <div class="lecture-box fadein">
+            <p class="step-title">step3</p>
+            <p class="sub-title">【当選者】予約の確定</p>
+            <div class="card">
+              <div class="card-body">
+                <p class="card-text">
+                  ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+                  ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+                  ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+                  ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+                </p>
+                <button class="btn" type="button" name="button">申込内容確認へ</button>
+              </div>
+            </div>
+          </div>
+          <div class="lecture-box fadein">
+            <p class="step-title">step3</p>
+            <p class="sub-title">【落選者】二次受付へ</p>
+            <div class="card">
+              <div class="card-body">
+                <p class="card-text">
+                    ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+                    ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+                    ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+                    ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+
+                </p>
+                <button class="btn" type="button" name="button">二次予約へ</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="agreement-box fadein">
+            <p class="agreement-text-title">ご利用規約</p>
+            <p class="agreement-text">施設ご利用の際は必ずお読みになってからご利用ください</p>
+            <button class="btn agreement-btn" type="button" name="button">ご利用規約（キャンセル規定）</button>
+          </div>
+        </div>
+        </section>
+<p id="page-top"><a href="#wrap">PAGE TOP</a></p>
+     <footer>
+         <div class="footer-image">
+         <img class="rebirth-logo" src="{% static 'img/rebirth.png' %}" alt="社名ロゴマーク" width="50px" height="80px">
+         </div>
+        <div class="footer-text">
+          <p class="copyright-text">c 2019 Sidebay_res_system_team</p>
+       </div>
+
+     </footer>
+
+
+{% endblock content %}

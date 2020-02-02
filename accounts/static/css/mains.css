@@ -1,0 +1,418 @@
+body {
+  /* background: #fffbf1; */
+  backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+.clear-fix {
+  clear: both;
+}
+
+/* ========================
+ヘッダー
+============================ */
+
+.navbar {
+  background: #ed9613;
+}
+
+.navbar-nav {
+  margin-right: 40px;
+}
+
+.navbar-brand {
+  margin-left: 5px;
+}
+
+.navbar-nav li a {
+  color:#fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.navbar-nav {
+  line-height: 46px;
+}
+
+.nav-item  {
+  margin-left: 10px;
+}
+
+
+/* ========================
+ヘッダー画像
+============================ */
+
+.top-image {
+  background: grey;
+  height: 300px;
+  text-align: center;
+}
+
+
+
+
+/* ========================
+メイン　コンテンツ
+============================ */
+
+.main-h {
+  text-align: center;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.attention-text {
+  color: #6b6b6b;
+  font-size: 14px;
+  text-align: center;
+}
+
+.contents-box {
+  display: flex;
+  margin-top: 20px;
+  backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+  padding: 10px;
+}
+
+.content-box {
+  display: inline-block;
+  border: 1px solid grey;
+  flex: 3;
+  padding: 20px;
+  text-align: center;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 3px 3px 2px 2px #dbdbdb;
+  backface-visibility:hidden;
+  -webkit-backface-visibility: hidden;
+}
+.content-box:hover {
+  border: 1px solid grey;
+  flex: 3;
+  padding: 20px;
+  text-align: center;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: none;
+  -moz-transform: scale(1.03,1.03);
+  -webkit-transform: scale(1.03,1.03);
+  -o-transform: scale(1.03,1.03);
+  -ms-transform: scale(1.03,1.03);
+  transition: 0.5s;
+  backface-visibility:hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.content-box {
+  margin-left: 8px;
+}
+
+.content-title {
+  font-size: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #6b6b6b;
+  margin: 0;
+  margin: 8px auto;
+  width: 200px;
+  backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+.first-title {
+  margin-bottom: 0;
+  font-weight: bold;
+  color: rgb(43, 43, 43);
+  backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+.second-title {
+  margin-bottom: 0;
+  font-weight: bold;
+  color: rgb(43, 43, 43);
+  height: 24px;
+  backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+.drawing {
+  height: 60px;
+  backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+.btn  {
+  background: orange;
+  color: #fff;
+  box-shadow: 0px 3px #a38100;
+  position: relative;
+  backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+.btn:hover {
+  background: orange;
+  color: #fff;
+}
+.btn:active {
+  background: orange;
+  color: #fff;
+  top: 3px;
+
+  box-shadow: none;
+  transition: 0.5s;
+}
+
+
+/* ========================
+流れの説明セクション
+============================ */
+.content-border {
+  background-color: #e27b1a;
+  margin: 30px 0;
+  height: 150px;
+  text-align: center;
+  line-height: 150px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #201919;
+}
+.content-border p {
+
+  text-align: center;
+  line-height: 150px;
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.fadein {
+  opacity : 0;
+  transform: translateY(20px);
+  transition: all 1s;
+}
+
+section .lecture-content {
+  display: block;
+  width: 600px;
+  margin: 0 auto;
+
+  margin-top: 20px;
+}
+
+section .lecture-box {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+section .card-text {
+  text-align: left;
+  height: 200px;
+}
+
+section p.step-title {
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid grey;
+  width: 200px;
+  margin: 0 auto;
+  padding: 5px;
+  margin-bottom: 3px;
+}
+
+section .card {
+  height: 300px;
+  border-radius: 8px;
+}
+
+/* ========================
+ご利用規約
+============================ */
+
+.agreement-box {
+  display: block;
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.agreement-btn {
+  background: #f4124c;
+}
+
+.agreement-btn {
+  background: #f4124c;
+  box-shadow: 0px 3px #ff3380;
+}
+
+.agreement-btn:active {
+  background: #f4124c;
+  color: #fff;
+  top: 3px;
+  box-shadow: none;
+  transition: 0.5s;
+}
+.agreement-btn:hover {
+  background: #f4124c;
+  color: #fff;
+}
+
+/* ========================
+トップに戻る
+============================ */
+#page-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 77%;
+}
+#page-top a {
+    background: #666;
+    text-decoration: none;
+    color: #fff;
+    width: 100px;
+    padding: 30px 0;
+    text-align: center;
+    display: block;
+    border-radius: 5px;
+}
+#page-top a:hover {
+    text-decoration: none;
+    background: #999;
+}
+
+
+
+
+/* ========================
+フッター
+============================ */
+
+footer {
+  width: 100%;
+  height: auto;
+  padding: 0px;
+  text-align: center;
+
+}
+
+footer .copyright-text {
+  font-size: 12px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  color: #cccccb;
+}
+
+.rebirth-logo {
+}
+
+
+/* ---------------------------
+レスポンシブ対応
+content-box群
+------------------------------- */
+
+@media (max-width:765px) {
+
+  header nav ul li {
+    font-size: 12px;
+    list-style-type: none;
+    margin-right: 0px;
+    color: #fff;
+    /* font-weight: bold; */
+    line-height: 50px;
+  }
+
+  header nav ul li:last-child {
+    margin-right: 5px;
+  }
+
+  .main-h {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 30px;
+  }
+
+  .attention-text {
+    color: #6b6b6b;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .contents-box {
+    width: 300px;
+    display: block;
+    margin-top: 50px;
+    backface-visibility: hidden;
+  	-webkit-backface-visibility: hidden;
+    margin: 0 auto;
+  }
+
+  .content-box {
+    margin-left: 0px;
+    margin-top: 8px;
+    width: 300px;
+  }
+
+  .content-border {
+    background-color: #e27b1a;
+    margin: 30px 0;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #201919;
+  }
+  .content-border p {
+
+    text-align: center;
+    line-height: 80px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  section .lecture-content {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+
+    margin-top: 20px;
+  }
+
+  section .card-text {
+    text-align: left;
+    height: 200px;
+    font-size: 14px;
+  }
+
+  .agreement-box {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 14px;
+  }
+
+  footer {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    text-align: center;
+  }
+
+  footer .copyright-text {
+    font-size: 10px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: #cccccb;
+  }
+}
+

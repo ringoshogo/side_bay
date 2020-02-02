@@ -1,0 +1,113 @@
+{% extends '../main_base.html' %}
+{% load staticfiles %}
+{% block content %}
+      <div class="lottery-title">
+          <p class="form-title" id="title-type">ユーザ管理</p>
+      </div>
+      <!--<div class="form-group" style="text-align:right">-->
+      <div class="container" >
+            <div class="col-xs-12">
+                  <p>ユーザーID、氏名、メールアドレスを記載の上、新規登録ボタンを押下してください。</p>
+            </div>
+            <div style="overflow-x: auto;">
+            <table class="table-bordered" width="100%">
+                  <thead>
+                        <tr>
+                              <th style="padding-left:10px;font-weight:bold;text-align:center" bgcolor="#f8dbc6">社員番号</th>
+                              <th style="padding-left:10px;font-weight:bold;text-align:center" bgcolor="#f8dbc6">氏名</th>
+                              <th style="padding-left:10px;font-weight:bold;text-align:center" bgcolor="#f8dbc6">メールアドレス</th>
+                              <th bgcolor="#f8dbc6"></th>
+                        </tr>
+                  </thead>
+                  <tbody>
+                        <form action="register_new_user" method="post">
+                        {% csrf_token %}
+                              <div class="form-group">
+                                    <tr>
+                                          <td align="center">
+                                                <p><input type="number" style="" name="user_id" id="user_id" class="form-control" placeholder="社員番号" required></p>
+                                          </td>
+                                          <td align="center">
+                                                <p><input type="text" name="user_name" id="user_name" class="form-control" placeholder="氏名" required></p>
+                                          </td>
+                                          <td align="center">
+                                                <p><input type="email" name="mail_address" id="mail_address" class="form-control" placeholder="メールアドレス" required></p>
+                                          </td>
+                                          <td align="center">
+                                                <div style="text-align:center;width:120px;">
+                                                      <input type="submit" class="btn" value="新規登録">
+                                                </div>
+                                          </td>
+                                    </tr>
+                              </div>
+                        </form>
+                  </tbody>
+            </table>
+            </div>
+            <br>
+            <div class="col-xs-12">
+                  <p>ユーザー情報更新の場合はテキストを変更し、更新ボタンを押下してください。<br>ユーザー情報削除の場合はそのまま削除ボタンを押下してください。</p>
+            </div>
+            <div style="overflow-x: auto;">
+            <table class="table-bordered" width="100%">
+                  <thead>
+                        <tr>
+                              <th style="padding-left:10px;font-weight:bold;text-align:center" bgcolor="#f8dbc6">社員番号</th>
+                              <th style="padding-left:10px;font-weight:bold;text-align:center" bgcolor="#f8dbc6">氏名</th>
+                              <th style="padding-left:10px;font-weight:bold;text-align:center" bgcolor="#f8dbc6">メールアドレス</th>
+                              <th bgcolor="#f8dbc6" colspan="2"></th>
+                        </tr>
+                  </thead>
+                  <tbody>
+                  {% for i in users %}
+                        <tr>
+                              <form action="" method="post">
+                              {% csrf_token %}
+                                    <div class="form-group">
+                                          <td style="padding-left:10px;padding-bottom:15px">{{i.user_id}}</td>
+                                          <td align="center">
+                                                <p><input type="text" value="{{i.username}}" name="user_name" id="user_name" class="form-control" onchange="changeText(this);"></p>
+                                          </td>
+                                          <td align="center">
+                                                <p><input type="text" value="{{i.mail_address}}" name="mail_address" id="mail_address" class="form-control"  onchange="changeText(this);"></p>
+                                          </td>
+                                          <td align="center">
+                                                <input type="button" class="btn" formaction="update_user" onclick="return confirmUpdate(this, '{{i.user_id}}')" value="更新">
+                                                <input type="button" class="btn" formaction="delete_user" onclick="return confirmUpdate(this, '{{i.user_id}}')" value="削除">
+                                                <input type="hidden"  name="user_id" id="user_id" value="{{i.user_id}}">
+                                          </td>
+                                    </div>
+                              </form>
+                        </tr>
+                  {% endfor %}
+                  </tbody>
+            </table>
+            <br>
+            </div>
+      </div>
+      <footer>
+            <div class="footer-image">
+                  <img class="rebirth-logo" src="{% static 'img/rebirth.png' %}" alt="社名ロゴマーク" width="50px" height="80px">
+            </div>
+            <div class="footer-text">
+                  <p class="copyright-text">c 2019 Sidebay_res_system_team</p>
+            </div>
+      </footer>
+
+      <script language="JavaScript">
+            function confirmUpdate(buttonElemnt, usrId) {
+                var result = confirm("社員番号" + usrId + "の情報を" + buttonElemnt.value + "してよろしいですか？\n※その他社員の更新情報は破棄されます。");
+                var formElement = buttonElemnt.form;
+                formElement.action = buttonElemnt.formAction;
+
+                if(result) {
+                    formElement.submit();
+                }
+            }
+            function changeText(elem) {
+                elem.style.backgroundColor = "#FFFF99";
+            }
+
+    </script>
+
+{% endblock content %}

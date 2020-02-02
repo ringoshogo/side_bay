@@ -1,0 +1,245 @@
+.container {
+  margin-top: 40px;
+}
+.close {
+font-size:16px;
+background-color: brown;
+/* width: 80px; */
+height: auto;
+padding: 10px;
+border-radius: 8px;
+position: relative;
+
+}
+
+#detail-area{
+  font-size: 20px;
+  border-radius: 16px;
+	display: none;
+	width: 300px;
+	height: 300px;
+	background: hsla(32, 93%, 70%, 0.979);
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	margin: auto;
+	z-index: 999;
+  padding: 30px;
+  transition: 1s;
+  /* opacity: 0.9; */
+}
+
+
+.calender-type-select {
+  float: right;
+  display: inline;
+
+}
+.lottery-title {
+  text-align: center;
+  margin-top: 10px;
+  width: 400px;
+  margin: 0 auto;
+  
+}
+
+.fc-event-container {
+  text-align: center;
+  color: aliceblue;
+}
+
+.form-title,
+#title-type {
+  font-size: 30px;
+}
+
+.lottery-card {
+  width: 450px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.lottery-card {
+}
+
+/* ==========================
+
+js用CSS
+
+=============================*/
+#dateForm1,
+#dateForm2,
+#dateForm3 {
+  margin-bottom: 3px;
+}
+
+#dateForm2,
+#dateForm3 {
+  opacity: 0;
+  transition: 1s;
+  visibility: hidden;
+}
+
+#dateForm2.is-show,
+#dateForm3.is-show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========================
+
+メインフォーム
+
+=============================*/
+
+.lottery-card-body {
+  padding: 30px 0 0px 70px;
+  display: block;
+}
+
+label.lottery-label-userName {
+  width: 300px;
+}
+label.lottery-label-room {
+  width: 200px;
+}
+/* label.lottery-label-day {
+  width: 300px;
+} */
+label.lottery-label-num {
+  width: 100px;
+}
+
+label.lottery-label-free-text {
+  width: 320px;
+}
+
+.required {
+  color: red;
+}
+
+.lottery-send-btn {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.lottery-goto-conf-btn {
+  width: 200px;
+  margin-bottom: 20px;
+  border:0;
+}
+
+.lottery-back-btn {
+  width: 150px;
+  margin-bottom: 20px;
+  box-shadow: 0px 3px #535353;
+  background:#646464;
+}
+.lottery-back-btn:hover {
+  width: 150px;
+  margin-bottom: 20px;
+  background:#646464;
+  box-shadow: 0px 3px #535353;
+}
+
+.conf_label {
+  float: left;
+  clear: both;
+  width: 150px;
+}
+
+.lottery-label-free-text-conf {
+  width: 320px;
+  height: auto;
+  overscroll-behavior:inherit;
+  
+}
+
+.lottery-card-body > p {
+  border-bottom: 1px solid #ffefe2;
+  width: 300px;
+  padding-bottom: 5px;
+  
+}
+
+.lottery-label-free-text {
+  margin-top: 16px;
+}
+
+.lottery-label-free-text > p {
+  background: #e9e7e7;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+
+
+
+.lottery-send {
+  text-align: center;
+  position: relative;
+}
+
+/* ========================
+
+確認モーダルフォーム
+
+===========================*/
+
+/* ========================
+
+スマホ対応
+
+===========================*/
+
+@media (max-width: 470px) {
+  .lottery-card,
+  form {
+    width: 350px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+  }
+  label.lottery-label-userName {
+    width: 200px;
+  }
+  label.lottery-label-day {
+    width: 200px;
+  }
+  label.lottery-label-num {
+    width: 80px;
+  }
+
+  .lottery-card-body {
+    padding: 30px 0 0px 70px;
+    display: block;
+  }
+}
+@media (max-width: 320px) {
+  .form-title {
+    font-size: 22px;
+  }
+
+  .lottery-card,
+  form {
+    width: 280px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+  }
+  label.lottery-label-userName {
+    width: 200px;
+  }
+  label.lottery-label-day {
+    width: 200px;
+  }
+  label.lottery-label-num {
+    width: 80px;
+  }
+
+  .lottery-card-body {
+    padding: 30px 0 0px 40px;
+    display: block;
+  }
+}

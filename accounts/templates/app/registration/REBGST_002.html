@@ -1,0 +1,150 @@
+{% extends '../main_base.html' %}
+{% load static %}
+{% block content %}
+
+    {% if request.session.login_user_id %}
+    <div class="container">
+        <div class="calender-type-select">
+
+            </div>
+            <div class="lottery-title">
+                <p class="form-title" id="title-type">予約カレンダー</p>
+            </div>
+            <div id="contents" class="container-fluid">  
+                <div class="col-xs-12">
+                  <div class="panel calendar-panel">
+                    <div class="panel-heading">   
+                    </div>
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="calendar"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            </div>
+            <!-- ここからモーダル表示部分として追記 -->
+            <div id="calendarModal" class="modal fade">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="label1">抽選エントリーフォーム</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="" action="push_res_app_button" method="post" onsubmit="return mySubmit('push_res_app_button')">
+                      {% csrf_token %}
+                      <div class="card lottery-card">
+                        <div class="card-body lottery-card-body">
+                          <p>
+                            <label class="lottery-label-num">
+                              部屋数<span class="required">*</span><input class="form-control" type="number" name="number_of_rooms" value="" min="1" max="4" required>
+                            </label>
+                          </p>
+                          <p>
+                            <label class="lottery-label-room">
+                              利用形態<span class="required">*</span>
+                              <select name="purpose" id="" class="form-control">
+                                <option value="0" selected>家族</option>
+                                <option value="1">友人</option>
+                                <option value="2">その他</option>
+                                <p>
+                          </p>
+                              </select>
+                            </label>
+                          </p>
+                          <p id="dateForm1">
+                            <label class="lottery-label-day">予約日<span class="required">*</span>
+                              <input class="lottery-days form-control" type="text" id="datepicker_start" size="20" name="check_in_date" maxlength="10"
+                                placeholder="チェックイン" required>
+                              <input class="lottery-days form-control" type="text" id="datepicker_end" size="20" name="check_out_date" maxlength="10"
+                                placeholder="チェックアウト" required>
+                            </label>
+                          </p>
+                        <p>
+                        </label>
+                        </p>
+                        </div>
+                        <div class="lottery-send">
+                          <button class="btn lottery-send-btn" type="submit" name="button">送信</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+
+        <div id="detail-area"></div>
+     <footer>
+         <div class="footer-image">
+         <img class="rebirth-logo" src="{% static 'img/rebirth.png' %}" alt="社名ロゴマーク" width="50px" height="80px">
+         </div>
+        <div class="footer-text">
+          <p class="copyright-text">c 2019 Sidebay_res_system_team</p>
+       </div>
+
+     </footer>
+
+
+    {% csrf_token %}
+    <script language="JavaScript">
+        function mySubmit(eventName) {
+
+            var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+            var check_in_date = document.getElementsByName("check_in_date")[0].value;
+            var check_out_date = document.getElementsByName("check_out_date")[0].value;
+            var number_of_rooms = document.getElementsByName("number_of_rooms")[0].value;
+            var purpose = document.getElementsByName("purpose")[0].value;
+            data = {
+                        "check_in_date" : check_in_date,
+                        "check_out_date" : check_out_date,
+                        "number_of_rooms" : number_of_rooms,
+                        "purpose" : purpose
+                    };
+
+            $.ajax(
+                {
+                    type: "POST",
+                    url: eventName,
+                    contentType: "application/json",
+                    //data: JSON.stringify(data),
+                    data: {
+                        "check_in_date" : check_in_date,
+                        "check_out_date" : check_out_date,
+                        "number_of_rooms" : number_of_rooms,
+                        "purpose" : purpose
+                    },
+                    // 送信前にヘッダにcsrf_tokenを付与。
+                    beforeSend: function(xhr, settings) {
+                         //if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                             xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                         //}
+                    },
+                    success: function(error){
+                        $('#calendarModal').modal('hide');
+                        if (error) {
+                            alert("エラーが発生しました。\n" + error);
+                        } else {
+                            alert("登録しました。");
+                        }
+                        $('#calendar').fullCalendar( 'refetchEvents' );
+
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown){
+                        alert("サーバー側でエラーが発生しました。");
+                    }
+                }
+            );
+            return false;
+        }
+    </script>
+
+    {% endif %}
+
+
+{% endblock content %}

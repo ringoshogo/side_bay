@@ -1,0 +1,64 @@
+[
+    {
+        "start": "2019-10-10",
+        "title": "空き状況：×",
+        "subscriber1": "miyata",
+        "subscriber2": "a",
+        "subscriber3": "miyata"
+    },
+    {
+        "start": "2019-10-11",
+        "title": "空き状況：×",
+        "subscriber1": "miyata",
+        "subscriber2": "a",
+        "subscriber3": "miyata"
+    },
+    {
+        "start": "2019-10-20",
+        "title": "空き状況：〇",
+        "subscriber1": "miyata"
+    },
+    {
+        "start": "2019-10-27",
+        "title": "空き状況：〇",
+        "subscriber1": "shogo"
+    },
+    {
+        "start": "2019-10-28",
+        "title": "空き状況：〇",
+        "subscriber1": "shogo"
+    },
+    {
+        "start": "2019-10-17",
+        "title": "空き状況：〇",
+        "subscriber1": "nakajima"
+    },
+    {
+        "start": "2019-10-18",
+        "title": "空き状況：〇",
+        "subscriber1": "nakajima"
+    },
+    {
+        "start": "2019-10-12",
+        "title": "空き状況：〇",
+        "subscriber1": "a",
+        "subscriber2": "miyata"
+    },
+    {
+        "start": "2019-10-13",
+        "title": "空き状況：〇",
+        "subscriber1": "a",
+        "subscriber2": "miyata"
+    },
+    {
+        "start": "2019-10-14",
+        "title": "空き状況：〇",
+        "subscriber1": "a",
+        "subscriber2": "miyata"
+    },
+    {
+        "start": "2019-10-15",
+        "title": "空き状況：〇",
+        "subscriber1": "miyata"
+    }
+]

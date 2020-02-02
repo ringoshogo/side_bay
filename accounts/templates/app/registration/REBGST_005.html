@@ -1,0 +1,55 @@
+{% extends '../main_base.html' %}
+{% load staticfiles %}
+{% block content %}
+  <body>
+            <div class="lottery-title">
+                <p class="form-title" id="title-type">パスワード変更</p>
+            </div>
+    <!-- メールアドレスとパスワードでログインをしてsideｰ米の抽選ページにいく -->
+  <form class="lottery-card" action="change_password" method="post" onsubmit="return passwordConf();">
+    {% csrf_token %}
+    <div class="form-group" style="text-align:right">
+
+      <!-- メールアドレスを入力 -->
+      <!-- メールアドレスの形式でなければエラーにする -->
+      <!-- 入力を必須にする -->
+      <h6><font color="red">{{ error }}</font></h6>
+      <p><input type="password" name="old_password" id="old_password" class="form-control" id="" placeholder="現パスワード" autofocus required></p>
+      <p><input type="password" name="new_password" id="new_password" class="form-control" id="" placeholder="新パスワード" required></p>
+      <p><input type="password" name="new_password_conf" id="new_password_conf" class="form-control" id="" placeholder="新パスワード 確認" required></p>
+
+      <button type="submit" class="btn">パスワード変更</button>
+
+    </div>
+
+
+  </form>
+  </div>
+
+     <footer>
+         <div class="footer-image">
+         <img class="rebirth-logo" src="{% static 'img/rebirth.png' %}" alt="社名ロゴマーク" width="50px" height="80px">
+         </div>
+        <div class="footer-text">
+          <p class="copyright-text">c 2019 Sidebay_res_system_team</p>
+       </div>
+
+     </footer>
+  <script language="JavaScript">
+    function passwordConf() {
+      var eOldPass = document.getElementById("old_password");
+      var eNewPass = document.getElementById("new_password");
+      var eNewPassConf = document.getElementById("new_password_conf");
+      if (eNewPass.value != eNewPassConf.value) {
+        alert("新パスワードが一致していません。");
+        return false;
+      }
+      if (eOldPass.value == eNewPass.value) {
+        alert("パスワードが前回と同じです");
+        return false;
+      }
+      return true;
+    }
+  </script>
+
+{% endblock content %}

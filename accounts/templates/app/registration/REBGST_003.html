@@ -1,0 +1,103 @@
+{% extends '../main_base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+    {% if request.session.login_user_id %}
+    <div class="container REBGST_003">
+        <div class="lottery-title">
+            <p class="form-title" id="title-type">マイページ</p>
+        </div>
+        <div id="contents" class="container-fluid">  
+            <div class="col-xs-12">
+                <p>現在の予約、抽選状況です。<br>当選しましたら、「確定」ボタンを押して予約を確定させてください。</p>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <!-- <th scope="col">ID</th> -->
+                        <th scope="col">ﾁｪｯｸｲﾝ予定日</th>
+                        <th scope="col">ﾁｪｯｸｱｳﾄ予定日</th>
+                        <th scope="col">部屋数</th>
+                        <th scope="col">ステータス</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in login_user_res_info %}
+                    <tr>
+                        <!-- ID -->
+                        <!-- <td>{{i.res_id}}</td> -->
+                        <!-- チェックィン日 -->
+                        <td>{{i.check_in_date|date:"Y/m/d"}}</td>
+                        <!-- チェックアウト日 -->
+                        <td>{{i.check_out_date|date:"Y/m/d"}}</td>
+                        <!-- 部屋数 -->
+                        <td>{{i.number_of_rooms}}</td>
+                        <!-- ステータス 0:抽選待ち、1:当選、2:予約確定、3:辞退、4:落選 -->
+                        {% if i.app_status == 0 %}<td>抽選待ち</td>
+                        {% elif i.app_status == 1 %}<td>当選</td>
+                        {% elif i.app_status == 2 %}<td>予約確定</td>
+                        {% elif i.app_status == 3 %}<td>辞退</td>
+                        {% elif i.app_status == 4 %}<td>落選</td>
+                        {% else %}<td>{{i.app_status}}</td>
+                        {% endif %}
+                        <!-- ボタン -->
+                        <td class="action-cell">
+                            <!-- キャンセル -->
+                            <form class="action-form" action="cancel_res_app" method="POST" onsubmit="return showConfirmDialog();">
+                                {% csrf_token %}
+                                <input type="hidden" name="reservation_id" value="{{i.res_id}}">
+
+                                {% if i.app_status == 0 %}
+                                    <button type="submit" class="btn btn-primary">ｷｬﾝｾﾙ</button>
+                                {% else %}
+                                    <button type="submit" class="btn btn-primary" disabled>ｷｬﾝｾﾙ</button>
+                                {% endif %}
+                            </form>
+                            <!-- 確定 -->
+                            <form class="action-form" action="confirm_res" method="POST" onsubmit="return showConfirmDialog();">
+                                {% csrf_token %}
+                                <input type="hidden" name="reservation_id" value="{{i.res_id}}">
+
+                                {% if i.app_status == 1 %}
+                                    <button type="submit" class="btn btn-primary">確定</button>
+                                {% else %}
+                                    <button type="submit" class="btn btn-primary" disabled>確定</button>
+                                {% endif %}
+                            </form>
+                            <!-- 辞退 -->
+                            <form class="action-form" action="cancel_res" method="POST" onsubmit="return showConfirmDialog();">
+                                {% csrf_token %}
+                                <input type="hidden" name="reservation_id" value="{{i.res_id}}">
+
+                                {% if i.app_status == 1 or i.app_status == 2 %}
+                                    <button type="submit" class="btn btn-primary">辞退</button>
+                                {% else %}
+                                    <button type="submit" class="btn btn-primary" disabled>辞退</button>
+                                {% endif %}
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>  
+
+    <footer>
+        <div class="footer-image">
+            <img class="rebirth-logo" src="{% static 'img/rebirth.png' %}" alt="社名ロゴマーク" width="50px" height="80px">
+        </div>
+        <div class="footer-text">
+            <p class="copyright-text">c 2019 Sidebay_res_system_team</p>
+        </div>
+    </footer>
+    {% endif %}
+
+    <script>
+        function showConfirmDialog() {
+            return window.confirm('実施してもよろしいですか？');
+        }
+    </script>
+
+{% endblock content %}

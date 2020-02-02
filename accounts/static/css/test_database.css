@@ -1,0 +1,19 @@
+table.common_list {
+    border-collapse: collapse;
+    border: 2px solid green;
+}
+
+table a:hover {background-color: #fcfcaa}
+
+table.common_list th,
+table.common_list td {
+    border: 1px solid green;
+}
+
+table.common_list th {
+    background-color: #e0ffff;
+}
+
+table.common_list td a {
+    display: block;
+}

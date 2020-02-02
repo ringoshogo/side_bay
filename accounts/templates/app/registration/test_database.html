@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+{% load static %}
+<head>
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'css/test_database.css' %}" />
+
+
+    <meta charset="UTF-8">
+    <title>test画面</title>
+</head>
+<body>
+
+<h5>◆ユーザ一覧</h5>
+    <table class="common_list"  border="">
+        <tr>
+            <th>ユーザID</th>
+            <th>名前</th>
+            <th>メールアドレス</th>
+            <th>パスワード</th>
+            <th>削除</th>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td><a href="{% url 'test_reservation' user.user_id %}">{{ user.user_id }}</a></td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.mail_address }}</td>
+                <td>{{ user.password }}</td>
+                <form action="delete_user" method="post">
+                    {% csrf_token %}
+                    <td>
+                        <input type="hidden" name="user_id" value="{{ user.user_id }}">
+                        <input type="submit" value="削除">
+                    </td>
+                </form>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+
+    <form action='test_database' method="POST">
+        {% csrf_token %}
+        ユーザID：<br>
+        <input type="text" name="user_id"><br>
+        名前：<br>
+        <input type="text" name="username" value="再度米"><br>
+        パスワード：<br>
+        <input type="text" name="password"><br>
+        メールアドレス：<br>
+        <input type="text" name="mail_address" value="test@gmail.com"><br>
+        <button type="submit">登録</button>
+    </form>
+
+    <br>
+
+    <a href='main'>ログイン画面へ戻る</a>
+
+    <h5>{{ json_data }}</h5>
+
+</body>
+</html>

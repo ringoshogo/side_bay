@@ -1,0 +1,57 @@
+{% extends '../base.html' %}
+{% load staticfiles %}
+{% block content %}
+  <body>
+    <div class="container">
+      <h1 class="login-title">Sidebay予約システム<br />ログイン</h1>
+  <div class="card">
+    <!-- メールアドレスとパスワードでログインをしてsideｰ米の抽選ページにいく -->
+  <form action="push_login_button" method="post" class="lottery-card">
+    {% csrf_token %}
+    <div class="form-group">
+
+      <!-- メールアドレスを入力 -->
+      <!-- メールアドレスの形式でなければエラーにする -->
+      <!-- 入力を必須にする -->
+      <h6><font color="red">{{ error }}</font></h6>
+      <input type="number" name="user_id" class="form-control" id="user_id" placeholder="社員番号" required {% if user_id %} value={{ user_id }} {% endif %} autofocus
+      onchange="user_id2.value=user_id.value">
+
+    </div>
+    <div class="form-group">
+
+      <!-- パスワードを入力 -->
+      <!-- 入力を必須にする -->
+      <input type="password" name="password" class="form-control" id="" placeholder="パスワード" required>
+    </div>
+    <!-- ログインボタンを押すと入力情報に間違いがなければメインページへ遷移する。 -->
+        <button type="submit" class="btn">ログイン</button>
+        <a class="reset-pass" href="#" onclick="clickPasswordClear()">パスワードを忘れた方はこちら</a>
+  </form>
+  <form action="reset_password" method="post">
+    {% csrf_token %}
+    <span style="display:none" id="pass_reset">
+    <div class="form-group">
+      <input type="number" id="user_id2" name="user_id" class="form-control" placeholder="社員番号" onchange="user_id.value=user_id2.value">
+    </div>
+    <div class="form-group">
+      <input type="email" name="mail_address" class="form-control" placeholder="メールアドレス">
+    </div>
+      <button type="submit" class="btn">パスワードリセット</button>
+  </form>
+
+    </span>
+    </div>
+    </div>
+
+  <script language="JavaScript">
+    function clickPasswordClear() {
+      var e = document.getElementById('pass_reset');
+      if (e.style.display == "none") {
+        e.style.display = "";
+      } else {
+        e.style.display = "none";
+      }
+    }
+  </script>
+{% endblock content %}

@@ -1,0 +1,72 @@
+
+
+/*  画面全体*/
+.container{
+  padding: 64px 28px 84px 28px;
+
+}
+
+/* ==========================
+ログインフォームの枠
+============================ */
+.card {
+  padding: 40px;
+  margin-top: 50px;
+  width: 340px;
+  margin: 50px auto 0 auto;
+  background-color:#fafafa;
+  border-radius: 8px;
+  border:1px solid #d9d9d9;
+  box-sizing: border-box;
+}
+
+/* ==========================
+Sidebay予約システムという名前のcss
+============================ */
+.login-title {
+  margin-bottom: 40px;
+  text-align: center;
+  /* border-bottom: 2px solid rgb(255, 230, 203); */
+  color:rgb(47, 47, 47);
+  font-size: 32px;
+
+}
+
+/* ==========================
+ログインボタン
+============================ */
+.btn {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  color: #FFF;
+  background: #fd9535;/*背景色*/
+  border-bottom: solid 2px #d27d00;/*少し濃い目の色に*/
+  border-radius: 4px;/*角の丸み*/
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+
+  border: 1px solid;
+
+}
+
+.btn:hover {
+  width: 100%;
+  padding: 10px;
+  color: #FFF;
+  background: #fd9535;/*背景色*/
+  border-bottom: solid 2px #d27d00;/*少し濃い目の色に*/
+  border-radius: 4px;/*角の丸み*/
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+  border: 1px solid;
+  opacity: 0.7;
+}
+
+.reset-pass{
+  float: right;
+  color: rgb(34, 34, 32);
+}
+.reset-pass:hover{
+  float: right;
+  color: rgb(34, 34, 32);
+  opacity: 0.5;
+}
